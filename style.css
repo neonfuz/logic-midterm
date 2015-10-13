@@ -26,18 +26,11 @@ h1 {
 button {
 	margin-bottom: .5em;
 	margin-top: .5em;
-
 	color: green;
 	background-color: black;
-
 	padding: 5px 10px;
 	border: 0 none;
 	border-radius: .25em;
-}
-
-.h-center {
-	margin-left: auto;
-	margin-right: auto;
 }
 
 #console-window {
@@ -51,4 +44,6 @@ button {
 	overflow-x: hidden;
 	overflow-y: scroll;
 	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
 }
