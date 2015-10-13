@@ -1,13 +1,14 @@
-var outConsole = document.getElementById("console-window");
+"use strict";
 
-function println(string) {
-	outConsole.innerHTML += string + "<br>";
-	outConsole.scrollTop = outConsole.scrollHeight;
-}
+var outConsole = document.getElementById("console-window");
 
 function print(string) {
 	outConsole.innerHTML += string;
 	outConsole.scrollTop = outConsole.scrollHeight;
+}
+
+function println(string) {
+	print(string + "<br/>");
 }
 
 function Bot() {
@@ -17,19 +18,13 @@ function Bot() {
 
 // Moves forward 1 square
 Bot.prototype.forward = function() {
-	++this.position;
-	if(this.position >=11) {
-		this.position = 1;
-	}
+	this.position = this.position % 10 + 1;
 	this.positionHistory.push(this.position);
 }
 
 // Moves backwards 1 square
 Bot.prototype.back = function() {
-	--this.position;
-	if(this.position <= 0) {
-		this.position = 10;
-	}
+	this.position = (this.position + 9) % 10;
 	this.positionHistory.push(this.position);
 }
 
