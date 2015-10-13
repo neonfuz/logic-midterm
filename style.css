@@ -2,18 +2,19 @@ body {
 	font-family: sans-serif;
 }
 
-button {
-/*	margin: .25em .25em .25em .25em;*/
-}
-
 #console-window {
+/* Stylize the console window */
+	background-color: black;
+	color: green;
+	font-family: "Lucida Console", Monaco, monospace;
+
+/* Set width and height */
 	height: 24em;
 	width: 80ch;
 	max-height: 24em;
 	max-width: 80ch;
-	background-color: black;
-	color: green;
+
+/* Make it scroll like a proper console */
 	overflow-x: hidden;
 	overflow-y: scroll;
 }
-
