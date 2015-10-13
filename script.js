@@ -88,6 +88,8 @@ Bot.prototype.randomPosition = function() {
 var bot = new Bot();
 
 function partA() {
+	println("");
+
 	if(bot.position == 8) {
 		println("Bot started on position 8, stopping.")
 		return;
@@ -98,6 +100,7 @@ function partA() {
 
 function partB() {
 	if(bot.position == 5) {
+		println("");
 		println("Bot started on position 5, moving back until position is 10.")
 		bot.backUntil(10)
 		return;
@@ -112,5 +115,6 @@ function partC() {
 }
 
 function partD() {
+	println("");
 	bot.shortestPath(10);
 }
