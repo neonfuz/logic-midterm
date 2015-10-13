@@ -12,7 +12,7 @@ function print(string) {
 
 function Bot() {
 	this.randomPosition();
-	println("New bot, position: " + this.position + "<br/>");
+	println("<br/>New bot, position: " + this.position);
 }
 
 // Moves forward 1 square
@@ -56,8 +56,8 @@ Bot.prototype.backUntil = function(stopPosition) {
 // Finds the shortest path to stopPosition and takes it
 Bot.prototype.shortestPath = function(stopPosition) {
 	// +10 %10 is to normalize the numbers 
-	var backDistance = (this.position - this.stopPosition + 10) % 10;
-	var forwardDistance = (this.stopPosition - this.position + 10) % 10;
+	var backDistance = (this.position - stopPosition + 10) % 10;
+	var forwardDistance = (stopPosition - this.position + 10) % 10;
 
 	if(backDistance < forwardDistance) {
 		println("The backwards path is shorter than the forwards path.");
