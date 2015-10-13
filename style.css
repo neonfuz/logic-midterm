@@ -1,0 +1,19 @@
+body {
+	font-family: sans-serif;
+}
+
+button {
+/*	margin: .25em .25em .25em .25em;*/
+}
+
+#console-window {
+	height: 24em;
+	width: 80ch;
+	max-height: 24em;
+	max-width: 80ch;
+	background-color: black;
+	color: green;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+

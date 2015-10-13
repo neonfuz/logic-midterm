@@ -1,0 +1,107 @@
+
+class Bot {
+	int position;
+	int[] positionHistory;
+
+	// Moves forward 1 square
+	void forward() {
+		++position;
+		if(position >=11) {
+			position = 1;
+		}
+		positionHistory.push(position);
+	}
+
+	// Moves backwards 1 square
+	void back() {
+		--position;
+		if(position <= 0) {
+			position = 10;
+		}
+		positionHistory.push(position);
+	}
+
+	// Moves forward until the bot is on stopPosition
+	void forwardUntil(int stopPosition) {
+		while(position != stopPosition) {
+			println("Bot is on position " + position + ", moving clockwise.");
+			forward();
+		}
+
+		println("Bot ended on position " + position + ".");
+	}
+
+	// Moves back until the bot is on stopPosition
+	void backUntil(int stopPosition) {
+		while(position != stopPosition) {
+			println("Bot is on position " + position + ", moving clockwise.");
+			back();
+		}
+
+		println("Bot ended on position " + position + ".");
+	}
+
+	void shortestPath(int stopPosition) {
+		// +10 %10 is to normalize the numbers 
+		int backDistance = (position - stopPosition + 10) % 10;
+		int forwardDistance = (stopPosition - position + 10) % 10;
+
+		if(backDistance < forwardDistance) {
+			println("The backwards path is shorter than the forwards path.");
+			backUntil(stopPosition);
+		} else {
+			println("The forwards path is shorter than the backwards path.");
+			forwardUntil(stopPosition);
+		}
+	}
+
+	void printHistoryBackwards() {
+		println("Directions back to beginning:");
+
+		for(int i=positionHistory.length; i>= 0; --i) {
+			println(positionHistory[i]);
+		}
+	}
+
+	void randomPosition() {
+		position = random(1, 11);
+		positionHistory = new Array();
+		positionHistory.push(position);
+	}
+
+	// Bot constructor
+	Bot() {
+		randomPosition();
+	}
+}
+
+Bot bot = new Bot();
+
+
+void partA() {
+	if(bot.position == 8) {
+		println("Bot started on position 8, stopping.")
+		return;
+	}
+
+	bot.forwardUntil(10);
+}
+
+void partB() {
+	if(bot.position == 5) {
+		println("Bot started on position 5, moving back until position is 10.")
+		bot.backUntil(10)
+		return;
+	} else {
+		partA();
+	}
+}
+
+void partC() {
+	partB();
+	bot.printHistoryBackwards();
+}
+
+void partD() {
+	bot.shortestPath(10);
+}
