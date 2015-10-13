@@ -12,7 +12,7 @@ function print(string) {
 
 function Bot() {
 	this.randomPosition();
-	println("<br/>New bot, position: " + this.position);
+	println("New bot, position: " + this.position);
 }
 
 // Moves forward 1 square
